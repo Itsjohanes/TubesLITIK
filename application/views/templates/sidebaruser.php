@@ -49,6 +49,23 @@
      <!-- Divider -->
      <hr class="sidebar-divider d-none d-md-block">
 
+
+
+
+     <?php
+        if ($title == 'IDE') {
+            echo "<li class='nav-item active'>";
+        } else {
+            echo "<li class='nav-item'>";
+        }
+        ?>
+     <a class="nav-link" href="<?= base_url('IDE'); ?>">
+         <i class="fas fa-address-card"></i>
+         <span>IDE</span></a>
+     </li>
+
+     <hr class="sidebar-divider d-none d-md-block">
+
      <li class="nav-item">
          <a class="nav-link" href="<?= base_url('auth/logout'); ?>">
              <i class="fas fa-fw fa-sign-out-alt"></i>
