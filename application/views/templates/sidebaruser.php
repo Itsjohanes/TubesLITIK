@@ -2,7 +2,7 @@
  <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
      <!-- Sidebar - Brand -->
-     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
          <div class="sidebar-brand-icon rotate-n-15">
              <i class="fas fa-code"></i>
          </div>
@@ -15,10 +15,39 @@
 
      <!-- QUERY MENU -->
 
+     <?php
+        if ($title == 'Dashboard User') {
+            echo "<li class='nav-item active'>";
+        } else {
+            echo "<li class='nav-item'>";
+        }
+        ?> <a class="nav-link" href="<?= base_url('User'); ?>">
+         <i class="fas fa-address-card"></i>
+         <span>Dashboard User</span></a>
+     </li>
+     <hr class="sidebar-divider d-none d-md-block">
 
+
+
+
+
+
+     <?php
+        if ($title == 'Materi User') {
+            echo "<li class='nav-item active'>";
+        } else {
+            echo "<li class='nav-item'>";
+        }
+        ?>
+     <a class="nav-link" href="<?= base_url('MateriUser'); ?>">
+         <i class="fas fa-address-card"></i>
+         <span>Materi</span></a>
+     </li>
 
      <!-- LOOPING MENU -->
 
+     <!-- Divider -->
+     <hr class="sidebar-divider d-none d-md-block">
 
      <li class="nav-item">
          <a class="nav-link" href="<?= base_url('auth/logout'); ?>">
