@@ -34,7 +34,7 @@
         }
         ?>
      <a class="nav-link" href="<?= base_url('IPK'); ?>">
-         <i class="fas fa-address-card"></i>
+         <i class="fas fa-graduation-cap"></i>
          <span>Indikator Pencapaian</span></a>
      </li>
 
@@ -49,7 +49,7 @@
         }
         ?>
      <a class="nav-link" href="<?= base_url('Materi'); ?>">
-         <i class="fas fa-address-card"></i>
+         <i class="fas fa-book"></i>
          <span>Materi</span></a>
      </li>
 

@@ -40,7 +40,7 @@
         }
         ?>
      <a class="nav-link" href="<?= base_url('MateriUser'); ?>">
-         <i class="fas fa-address-card"></i>
+         <i class="fas fa-book"></i>
          <span>Materi</span></a>
      </li>
 
@@ -60,7 +60,7 @@
         }
         ?>
      <a class="nav-link" href="<?= base_url('IDE'); ?>">
-         <i class="fas fa-address-card"></i>
+         <i class="fas fa-desktop"></i>
          <span>IDE</span></a>
      </li>
 
