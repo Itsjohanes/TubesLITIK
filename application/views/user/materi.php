@@ -25,7 +25,7 @@
                             <th scope="row"><?= $i; ?></th>
                             <td><?= $j['nama_ipk']; ?></td>
                             <td><?= $j['nama_materi']; ?></td>
-                            <td><a href="<?= $j['link_materi']; ?>" class="btn btn-primary">Lihat</a></td>
+                            <td><a href="<?= $j['link_materi']; ?>" class="btn btn-primary" target="_blank">Lihat</a></td>
                         </tr>
                         <?php $i++; ?>
                     <?php endforeach; ?>
