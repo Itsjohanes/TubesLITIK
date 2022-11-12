@@ -12,44 +12,35 @@
     <div class="row no-gutters">
 
         <br>
-        <form class="dokter" method="post" action="<?= base_url('IPK/tambah') ?>">
-            <div class="row">
-                <div class="col">
-                    <input type="text" class="form-control" placeholder="Nama IPK" id="nama_ipk" name="nama_ipk">
-                </div>
 
-                <div class="col">
-                    <Button class="btn btn-success">Submit</Button>
-                </div>
-            </div>
-        </form>
         <table class="table">
             <thead>
                 <tr>
                     <th scope="col">No.</th>
-                    <th scope="col">ID</th>
-                    <th scope="col">Nama</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Nama IPK</th>
+                    <th scope="col">Link Tugas</th>
+                    <th scope="col">Nilai</th>
                     <th scope="col">Aksi</th>
 
                 </tr>
             </thead>
             <tbody>
                 <?php $i = 1; ?>
-                <?php foreach ($ipk as $j) : ?>
+                <?php foreach ($tugas as $j) : ?>
                     <tr>
-                        <th scope="row"><?= $i; ?></th>
-                        <td><?= $j['id_ipk']; ?></td>
+                        <td scope="row"><?= $i; ?></td>
+                        <td><?= $j['email']; ?></td>
                         <td><?= $j['nama_ipk']; ?></td>
+                        <td><?= $j['link_tugas']; ?></td>
+                        <td><?= $j['nilai']; ?></td>
                         <td>
                             <?php
 
-                            echo '<a href="' . base_url('IPK/edit/') . $j['id_ipk'] . '" class="badge badge-success">Edit</a>';
-                            echo '<a href="' . base_url('IPK/delete/') . $j['id_ipk'] . '" class="badge badge-danger">Hapus</a>';
+                            echo '<a href="' . base_url('Tugas/edit/') . $j['id_tugas'] . '" class="badge badge-success">Nilai</a>';
 
                             ?>
-
                         </td>
-
                     </tr>
                     <?php $i++; ?>
                 <?php endforeach; ?>
@@ -58,22 +49,6 @@
     </div>
 </div>
 <!-- /.container-fluid -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

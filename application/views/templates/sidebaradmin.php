@@ -55,6 +55,20 @@
 
      <hr class="sidebar-divider d-none d-md-block">
 
+     <?php
+        if ($title == 'Tugas' || $title == 'Edit Tugas') {
+            echo "<li class='nav-item active'>";
+        } else {
+            echo "<li class='nav-item'>";
+        }
+        ?>
+     <a class="nav-link" href="<?= base_url('Tugas'); ?>">
+         <i class="fas fa-book-open"></i>
+         <span>Tugas</span></a>
+     </li>
+
+     <hr class="sidebar-divider d-none d-md-block">
+
 
      <li class="nav-item">
          <a class="nav-link" href="<?= base_url('auth/logout'); ?>">

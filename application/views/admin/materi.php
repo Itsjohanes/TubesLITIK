@@ -9,69 +9,67 @@
     <?php if ($this->session->flashdata('category_error')) { ?>
         <div class="alert alert-danger"> <?= $this->session->flashdata('category_error') ?> </div>
     <?php } ?>
-    <div class="card mb-3 col-lg-8">
-        <div class="row no-gutters">
+    <div class="row no-gutters">
 
-            <br>
-            <form class="dokter" method="post" action="<?= base_url('Materi/tambah') ?>">
-                <div class="row">
-                    <div class="col">
-                        <input type="text" class="form-control" placeholder="Nama Materi" id="nama_materi" name="nama_materi">
-                    </div>
-                    <div class="col">
-                        <select class="form-control" id="id_ipk" name="id_ipk">
-                            <option value="">Pilih IPK</option>
-                            <?php foreach ($ipk as $j) : ?>
-                                <option value="<?= $j['id_ipk']; ?>"><?= $j['nama_ipk']; ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-                    <div class="col">
-                        <input type="text" class="form-control" placeholder="Link Materi" id="link_materi" name="link_materi">
-                    </div>
-
-                    <div class="col">
-                        <Button class="btn btn-success">Submit</Button>
-                    </div>
+        <br>
+        <form class="dokter" method="post" action="<?= base_url('Materi/tambah') ?>">
+            <div class="row">
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="Nama Materi" id="nama_materi" name="nama_materi">
                 </div>
-            </form>
-            <table class="table">
-                <thead>
+                <div class="col">
+                    <select class="form-control" id="id_ipk" name="id_ipk">
+                        <option value="">Pilih IPK</option>
+                        <?php foreach ($ipk as $j) : ?>
+                            <option value="<?= $j['id_ipk']; ?>"><?= $j['nama_ipk']; ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="Link Materi" id="link_materi" name="link_materi">
+                </div>
+
+                <div class="col">
+                    <Button class="btn btn-success">Submit</Button>
+                </div>
+            </div>
+        </form>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">No.</th>
+                    <th scope="col">ID Materi</th>
+                    <th scope="col">Nama IPK</th>
+                    <th scope="col">Nama Materi</th>
+                    <th scope="col">Link Materi</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $i = 1; ?>
+                <?php foreach ($materi as $j) : ?>
                     <tr>
-                        <th scope="col">No.</th>
-                        <th scope="col">ID Materi</th>
-                        <th scope="col">Nama IPK</th>
-                        <th scope="col">Nama Materi</th>
-                        <th scope="col">Link Materi</th>
-                        <th scope="col">Action</th>
+                        <th scope="row"><?= $i; ?></th>
+                        <td><?= $j['id_materi']; ?></td>
+                        <td><?= $j['nama_ipk']; ?></td>
+                        <td><?= $j['nama_materi']; ?></td>
+                        <td><?= $j['link_materi']; ?></td>
+
+                        <td>
+                            <?php
+
+                            echo '<a href="' . base_url('Materi/edit/') . $j['id_materi'] . '" class="badge badge-success">Edit</a>';
+                            echo '<a href="' . base_url('Materi/delete/') . $j['id_materi'] . '" class="badge badge-danger">Hapus</a>';
+
+                            ?>
+
+                        </td>
+
                     </tr>
-                </thead>
-                <tbody>
-                    <?php $i = 1; ?>
-                    <?php foreach ($materi as $j) : ?>
-                        <tr>
-                            <th scope="row"><?= $i; ?></th>
-                            <td><?= $j['id_materi']; ?></td>
-                            <td><?= $j['nama_ipk']; ?></td>
-                            <td><?= $j['nama_materi']; ?></td>
-                            <td><?= $j['link_materi']; ?></td>
-
-                            <td>
-                                <?php
-
-                                echo '<a href="' . base_url('Materi/edit/') . $j['id_materi'] . '" class="badge badge-success">Edit</a>';
-                                echo '<a href="' . base_url('Materi/delete/') . $j['id_materi'] . '" class="badge badge-danger">Hapus</a>';
-
-                                ?>
-
-                            </td>
-
-                        </tr>
-                        <?php $i++; ?>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
-        </div>
+                    <?php $i++; ?>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
     </div>
 </div>
 <!-- /.container-fluid -->

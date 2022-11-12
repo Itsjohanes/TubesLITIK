@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 12, 2022 at 09:19 AM
+-- Generation Time: Nov 12, 2022 at 04:20 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -61,12 +61,34 @@ CREATE TABLE `tb_materi` (
 --
 
 INSERT INTO `tb_materi` (`id_materi`, `id_ipk`, `nama_materi`, `link_materi`) VALUES
-(2, 2, 'Berbagai Struktur Perulangan', 'blablaaa'),
+(2, 2, 'Berbagai Struktur Perulangan', 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'),
 (5, 9, 'Klasifikasi Struktur Perulangan', 'blaaa'),
 (6, 10, 'Implementasi Do While', 'blaaa'),
 (7, 11, 'Implementasi While', 'blaaaaa'),
-(8, 11, 'Implementasi While', 'blaaaaa'),
 (9, 12, 'Implementasi For', 'blaaaaa');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_tugas`
+--
+
+CREATE TABLE `tb_tugas` (
+  `id_tugas` int(11) NOT NULL,
+  `id_ipk` int(11) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `link_tugas` varchar(255) NOT NULL,
+  `nilai` varchar(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_tugas`
+--
+
+INSERT INTO `tb_tugas` (`id_tugas`, `id_ipk`, `email`, `link_tugas`, `nilai`) VALUES
+(3, 12, 'johannes@upi.edu', 'forrrrr', '100'),
+(5, 11, 'johannes@upi.edu', 'blaaa', '90'),
+(6, 2, 'a455lgrowtopia@gmail.com', 'blaaa', '80');
 
 -- --------------------------------------------------------
 
@@ -85,6 +107,7 @@ CREATE TABLE `tb_user` (
 --
 
 INSERT INTO `tb_user` (`email`, `password`, `role`) VALUES
+('a455lgrowtopia@gmail.com', '$2y$10$oSE/7vJeY4oEBN0L6fKpXujQqSntx03IfGNjf25ke9cVjo/U4pOsC', 0),
 ('johanesalex774@gmail.com', '$2y$10$/JgDHdVFmuM1shsA4NN0peySywYPEzBUpQuMiz.h9.MEewVgLpVBe', 1),
 ('johannes@upi.edu', '$2y$10$eZu9GT7F822SnSAWcP5pxeZ8lB6rqP0vNTVo3BXgfj12mtEnW0bX.', 0);
 
@@ -107,7 +130,8 @@ CREATE TABLE `user_menu` (
 INSERT INTO `user_menu` (`id`, `role`, `menu`) VALUES
 (3, 0, 'User'),
 (4, 0, 'MateriUser'),
-(5, 0, 'IDE');
+(5, 0, 'IDE'),
+(6, 0, 'TugasUser');
 
 --
 -- Indexes for dumped tables
@@ -124,6 +148,14 @@ ALTER TABLE `tb_ipk`
 --
 ALTER TABLE `tb_materi`
   ADD PRIMARY KEY (`id_materi`),
+  ADD KEY `id_ipk` (`id_ipk`);
+
+--
+-- Indexes for table `tb_tugas`
+--
+ALTER TABLE `tb_tugas`
+  ADD PRIMARY KEY (`id_tugas`),
+  ADD KEY `email` (`email`),
   ADD KEY `id_ipk` (`id_ipk`);
 
 --
@@ -155,10 +187,16 @@ ALTER TABLE `tb_materi`
   MODIFY `id_materi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
+-- AUTO_INCREMENT for table `tb_tugas`
+--
+ALTER TABLE `tb_tugas`
+  MODIFY `id_tugas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `user_menu`
 --
 ALTER TABLE `user_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables
@@ -169,6 +207,13 @@ ALTER TABLE `user_menu`
 --
 ALTER TABLE `tb_materi`
   ADD CONSTRAINT `tb_materi_ibfk_1` FOREIGN KEY (`id_ipk`) REFERENCES `tb_ipk` (`id_ipk`);
+
+--
+-- Constraints for table `tb_tugas`
+--
+ALTER TABLE `tb_tugas`
+  ADD CONSTRAINT `tb_tugas_ibfk_1` FOREIGN KEY (`email`) REFERENCES `tb_user` (`email`),
+  ADD CONSTRAINT `tb_tugas_ibfk_2` FOREIGN KEY (`id_ipk`) REFERENCES `tb_ipk` (`id_ipk`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
