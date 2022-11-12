@@ -66,6 +66,28 @@
 
      <hr class="sidebar-divider d-none d-md-block">
 
+
+
+     <?php
+        if ($title == 'Tugas' || $title == 'Edit Tugas') {
+            echo "<li class='nav-item active'>";
+        } else {
+            echo "<li class='nav-item'>";
+        }
+        ?>
+     <a class="nav-link" href="<?= base_url('TugasUser'); ?>">
+         <i class="fas fa-book-open"></i>
+         <span>Tugas</span></a>
+     </li>
+
+     <hr class="sidebar-divider d-none d-md-block">
+
+
+
+
+
+
+
      <li class="nav-item">
          <a class="nav-link" href="<?= base_url('auth/logout'); ?>">
              <i class="fas fa-fw fa-sign-out-alt"></i>
@@ -75,6 +97,11 @@
 
      <!-- Divider -->
      <hr class="sidebar-divider d-none d-md-block">
+
+
+
+
+
 
      <!-- Sidebar Toggler (Sidebar) -->
      <div class="text-center d-none d-md-inline">
