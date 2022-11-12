@@ -27,7 +27,7 @@
 
      <!--Menu IPK-->
      <?php
-        if ($title == 'IPK') {
+        if ($title == 'IPK' || $title == 'Edit IPK') {
             echo "<li class='nav-item active'>";
         } else {
             echo "<li class='nav-item'>";
@@ -40,9 +40,20 @@
 
      <hr class="sidebar-divider d-none d-md-block">
 
+     <!--Menu Materi-->
+     <?php
+        if ($title == 'Materi' || $title == 'Edit Materi') {
+            echo "<li class='nav-item active'>";
+        } else {
+            echo "<li class='nav-item'>";
+        }
+        ?>
+     <a class="nav-link" href="<?= base_url('Materi'); ?>">
+         <i class="fas fa-address-card"></i>
+         <span>Materi</span></a>
+     </li>
 
-
-
+     <hr class="sidebar-divider d-none d-md-block">
 
 
      <li class="nav-item">
