@@ -25,6 +25,7 @@ class Tugas extends CI_Controller
         $this->db->select('tb_tugas.id_tugas,tb_tugas.id_ipk,tb_tugas.email,tb_tugas.link_tugas,tb_tugas.nilai,tb_ipk.nama_ipk');
         $this->db->from('tb_tugas');
         $this->db->join('tb_ipk', 'tb_ipk.id_ipk = tb_tugas.id_ipk');
+        $this->db->order_by('tb_ipk.id_ipk', 'ASC');
         $data['tugas'] = $this->db->get()->result_array();
         //tampilkan
         $data['ipk'] = $this->db->get('tb_ipk')->result_array();

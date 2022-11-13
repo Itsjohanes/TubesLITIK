@@ -32,7 +32,7 @@
                         <td scope="row"><?= $i; ?></td>
                         <td><?= $j['email']; ?></td>
                         <td><?= $j['nama_ipk']; ?></td>
-                        <td><?= $j['link_tugas']; ?></td>
+                        <td><a href="<?= $j['link_tugas']; ?>" class="btn btn-primary" target="_blank">Lihat</a></td>
                         <td><?= $j['nilai']; ?></td>
                         <td>
                             <?php

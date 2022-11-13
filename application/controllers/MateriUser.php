@@ -20,6 +20,7 @@ class MateriUser extends CI_Controller
         $this->db->select('tb_materi.id_materi,tb_materi.nama_materi,tb_materi.link_materi,tb_materi.id_ipk,tb_ipk.nama_ipk');
         $this->db->from('tb_materi');
         $this->db->join('tb_ipk', 'tb_materi.id_ipk = tb_ipk.id_ipk');
+        $this->db->order_by('tb_ipk.id_ipk', 'ASC');
         $data['materi'] = $this->db->get()->result_array();
         //tampilkan
         $this->load->view('templates/header', $data);

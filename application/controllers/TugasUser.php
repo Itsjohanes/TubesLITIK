@@ -49,6 +49,7 @@ class TugasUser extends CI_Controller
         $this->db->where('tb_tugas.email', $data['user']['email']);
         $this->db->from('tb_tugas');
         $this->db->join('tb_ipk', 'tb_ipk.id_ipk = tb_tugas.id_ipk');
+        $this->db->order_by('tb_ipk.id_ipk', 'ASC');
         $data['tugas'] = $this->db->get()->result_array();
         //tampilkan
         $data['ipk'] = $this->db->get('tb_ipk')->result_array();
