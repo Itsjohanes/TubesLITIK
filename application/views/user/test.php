@@ -19,7 +19,7 @@
                 </tr>
                 <?php
                 if (!empty($data['gambar'])) {
-                    echo "<tr><td></td><td><img src='assets/img/$data[gambar]' width='80' height='80'></td></tr>";
+                    echo "<tr><td></td><td><img src='./assets/img/soal/$data[gambar]' width='240' height='120'></td></tr>";
                 }
                 ?>
                 <tr>

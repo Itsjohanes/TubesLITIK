@@ -79,7 +79,9 @@ echo "
             <tr>
                 <td width='80'><u>Benar ✔</u></td>
                 <td width='80'><u>Salah ✕</u></td>
-                <td width='140'><u>Tidak Terjawab !</u></td>
+                <td width='140'><u>Jawaban</u></td>
+                <td width='80'><u>Kosong</u></td>
+
                 <td width='100'><u>Skor Akhir #</u></td>
             </tr>
             <tr>

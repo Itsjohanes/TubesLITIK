@@ -69,7 +69,32 @@
 
      <hr class="sidebar-divider d-none d-md-block">
 
+     <?php
+        if ($title == 'Test Admin' || $title == 'Edit Soal') {
+            echo "<li class='nav-item active'>";
+        } else {
+            echo "<li class='nav-item'>";
+        }
+        ?>
+     <a class="nav-link" href="<?= base_url('TestAdmin'); ?>">
+         <i class="fas fa-pencil-ruler"></i> <span>Test Admin</span></a>
+     </li>
 
+     <hr class="sidebar-divider d-none d-md-block">
+
+
+     <?php
+        if ($title == 'Nilai Tes') {
+            echo "<li class='nav-item active'>";
+        } else {
+            echo "<li class='nav-item'>";
+        }
+        ?>
+     <a class="nav-link" href="<?= base_url('NilaiTest'); ?>">
+         <i class="fas fa-book-reader"></i>
+         <span>Hasil Test User</span></a> </li>
+
+     <hr class="sidebar-divider d-none d-md-block">
      <li class="nav-item">
          <a class="nav-link" href="<?= base_url('auth/logout'); ?>">
              <i class="fas fa-fw fa-sign-out-alt"></i>
