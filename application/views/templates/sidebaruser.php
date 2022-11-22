@@ -85,6 +85,31 @@
 
 
 
+     <?php
+        if ($title == 'Test User') {
+            echo "<li class='nav-item active'>";
+        } else {
+            echo "<li class='nav-item'>";
+        }
+        ?>
+     <a class="nav-link" href="<?= base_url('TestUser'); ?>">
+         <i class="fas fa-pencil-ruler"></i> <span>Test User</span></a>
+     </li>
+
+     <hr class="sidebar-divider d-none d-md-block">
+     <?php
+        if ($title == 'Hasil Test User') {
+            echo "<li class='nav-item active'>";
+        } else {
+            echo "<li class='nav-item'>";
+        }
+        ?>
+     <a class="nav-link" href="<?= base_url('HasilTestUser'); ?>">
+         <i class="fas fa-book-reader"></i>
+         <span>Hasil Test User</span></a>
+     </li>
+
+     <hr class="sidebar-divider d-none d-md-block">
 
 
 
