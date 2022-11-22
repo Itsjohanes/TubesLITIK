@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 12, 2022 at 04:20 PM
+-- Generation Time: Nov 22, 2022 at 04:29 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -20,6 +20,53 @@ SET time_zone = "+00:00";
 --
 -- Database: `media`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_soal`
+--
+
+CREATE TABLE `tbl_soal` (
+  `id_soal` int(11) NOT NULL,
+  `a` varchar(255) NOT NULL,
+  `b` varchar(255) NOT NULL,
+  `c` varchar(255) NOT NULL,
+  `d` varchar(255) NOT NULL,
+  `kunci` varchar(255) NOT NULL,
+  `soal` varchar(255) NOT NULL,
+  `gambar` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_soal`
+--
+
+INSERT INTO `tbl_soal` (`id_soal`, `a`, `b`, `c`, `d`, `kunci`, `soal`, `gambar`) VALUES
+(1, 'for', 'while', 'do while', 'while do', 'a', 'Apa Sebutan Struktur Perulangan di bawah ini? ', 'for1.jpg'),
+(3, 'for', 'while', 'do while', 'while do', 'c', 'Apa Sebutan Struktur Perulangan di bawah ini? ', 'dowhile1.jpg'),
+(4, 'for', 'while', 'do while', 'depend on', 'b', 'Apa Sebutan Struktur Perulangan di bawah ini? ', 'while1.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_tes`
+--
+
+CREATE TABLE `tbl_tes` (
+  `email` varchar(255) NOT NULL,
+  `nilai` varchar(3) NOT NULL,
+  `id_tes` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_tes`
+--
+
+INSERT INTO `tbl_tes` (`email`, `nilai`, `id_tes`) VALUES
+('johannes@upi.edu', '100', 1),
+('johannes@upi.edu', '100', 2),
+('johannes@upi.edu', '100', 5);
 
 -- --------------------------------------------------------
 
@@ -88,7 +135,8 @@ CREATE TABLE `tb_tugas` (
 INSERT INTO `tb_tugas` (`id_tugas`, `id_ipk`, `email`, `link_tugas`, `nilai`) VALUES
 (3, 12, 'johannes@upi.edu', 'forrrrr', '100'),
 (5, 11, 'johannes@upi.edu', 'blaaa', '90'),
-(6, 2, 'a455lgrowtopia@gmail.com', 'blaaa', '80');
+(6, 2, 'a455lgrowtopia@gmail.com', 'blaaa', '80'),
+(7, 2, 'hafil@upi.edu', 'https://www.google.com/', '80');
 
 -- --------------------------------------------------------
 
@@ -108,6 +156,7 @@ CREATE TABLE `tb_user` (
 
 INSERT INTO `tb_user` (`email`, `password`, `role`) VALUES
 ('a455lgrowtopia@gmail.com', '$2y$10$oSE/7vJeY4oEBN0L6fKpXujQqSntx03IfGNjf25ke9cVjo/U4pOsC', 0),
+('hafil@upi.edu', '$2y$10$G2qbpgxRpWVXpiV5kUSmH.OVPPrANjNUIrPAtCsUv38iojfw9QRmu', 0),
 ('johanesalex774@gmail.com', '$2y$10$/JgDHdVFmuM1shsA4NN0peySywYPEzBUpQuMiz.h9.MEewVgLpVBe', 1),
 ('johannes@upi.edu', '$2y$10$eZu9GT7F822SnSAWcP5pxeZ8lB6rqP0vNTVo3BXgfj12mtEnW0bX.', 0);
 
@@ -131,11 +180,25 @@ INSERT INTO `user_menu` (`id`, `role`, `menu`) VALUES
 (3, 0, 'User'),
 (4, 0, 'MateriUser'),
 (5, 0, 'IDE'),
-(6, 0, 'TugasUser');
+(6, 0, 'TugasUser'),
+(9, 0, 'TestUser'),
+(10, 0, 'HasilTestUser');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `tbl_soal`
+--
+ALTER TABLE `tbl_soal`
+  ADD PRIMARY KEY (`id_soal`);
+
+--
+-- Indexes for table `tbl_tes`
+--
+ALTER TABLE `tbl_tes`
+  ADD PRIMARY KEY (`id_tes`);
 
 --
 -- Indexes for table `tb_ipk`
@@ -175,6 +238,18 @@ ALTER TABLE `user_menu`
 --
 
 --
+-- AUTO_INCREMENT for table `tbl_soal`
+--
+ALTER TABLE `tbl_soal`
+  MODIFY `id_soal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `tbl_tes`
+--
+ALTER TABLE `tbl_tes`
+  MODIFY `id_tes` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `tb_ipk`
 --
 ALTER TABLE `tb_ipk`
@@ -190,13 +265,13 @@ ALTER TABLE `tb_materi`
 -- AUTO_INCREMENT for table `tb_tugas`
 --
 ALTER TABLE `tb_tugas`
-  MODIFY `id_tugas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_tugas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `user_menu`
 --
 ALTER TABLE `user_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Constraints for dumped tables
